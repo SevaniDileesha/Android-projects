@@ -1,6 +1,11 @@
 <resources>
-    <string name="app_name">SampleUI</string>
-    <string name="top_txt_value">This is a sample UI</string>
-    <string name="middle_button">I hate you !!!</string>
-    <string name="bottom_button">Haaaa</string>
+    <string name="app_name">My Self Care</string>
+    <string name="top_txt_value">Welcome to My Self Care App</string>
+    <string name="middle_button">Register with us</string>
+    <string name="bottom_button">Login</string>
+    <string name="income_string">Maintain your daily income</string>
+    <string name="expense_sring">Maintain you daily expenses</string>
+    <string name="storage_string">Maintain you profile</string>
+    <string name="gallery_string">Maintain your gallery</string>
+    <string name="message_string">Maintain your messages</string>
 </resources>
