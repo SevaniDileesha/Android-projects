@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_appointments"
+            android:icon="@drawable/ic_account_balance_wallet_black_24dp"
+            android:title="Appointments" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="Profile" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_fingerprint_black_24dp"
+            android:title="Logout" />
+    </group>
+
+    <item android:title="Search By">
+        <menu>
+            <item
+                android:id="@+id/nav_doctor"
+                android:icon="@drawable/ic_healing_black_24dp"
+                android:title="Doctors" />
+            <item
+                android:id="@+id/nav_hospital"
+                android:icon="@drawable/ic_local_hospital_black_24dp"
+                android:title="Hospitals" />
+            <item
+                android:id="@+id/nav_speciality"
+                android:icon="@drawable/ic_all_inclusive_black_24dp"
+                android:title="Speciality" />
+        </menu>
+    </item>
+
+</menu>
