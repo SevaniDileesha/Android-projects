@@ -1,5 +1,6 @@
 package com.industrialmaster.doca99;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,9 +13,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.AutoCompleteTextView;
+
+import com.industrialmaster.doca99.tasks.DoctorListTask;
+import com.industrialmaster.doca99.tasks.HospitalListTask;
+import com.industrialmaster.doca99.tasks.SpecialityListTask;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    AutoCompleteTextView acSpeciality, acDoctor, acHospital;
+    int sid,hid,did;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,23 +33,46 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+        acSpeciality = findViewById(R.id.acSpeciality);
+        acDoctor = findViewById(R.id.acDoctor);
+        acHospital = findViewById(R.id.acHospital);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        final SpecialityListTask slt = new SpecialityListTask();
+        final DoctorListTask dct = new DoctorListTask();
+        final HospitalListTask hpt = new HospitalListTask();
+        slt.execute(acSpeciality);
+        dct.execute(acDoctor);
+        hpt.execute(acHospital);
+
+        acSpeciality.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> av, View v, int index, long l) {
+                sid = slt.data.get(acSpeciality.getText().toString());
+            }
+        });
+
+        acDoctor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int index, long id) {
+                did = dct.data.get(acDoctor.getText().toString());
+            }
+        });
+
+        acHospital.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int index, long id) {
+                hid = hpt.data.get(acHospital.getText().toString());
+            }
+        });
+
+
     }
 
     @Override
@@ -97,5 +130,24 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void search(View view){
+
+        Intent intent = new Intent(this, DoctorSessionActivity.class);
+        intent.putExtra("sid",sid);
+        intent.putExtra("sid",hid);
+        intent.putExtra("sid",did);
+        startActivity(intent);
+    }
+
+    public void clear(View view){
+        hid = 0;
+        sid = 0;
+        did = 0;
+
+        acSpeciality.setText("");
+        acDoctor.setText("");
+        acHospital.setText("");
     }
 }

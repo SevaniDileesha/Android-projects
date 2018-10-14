@@ -7,6 +7,15 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_profile">ProfileActivity</string>
+
+    <string name="speciality">Speciality</string>
+    <string name="hospital">Hospital</string>
+    <string name="doctor">Doctor</string>
+
+    <string name="speciality_hint">select speciality</string>
+    <string name="hospital_hint">select hospital</string>
+    <string name="doctor_hint">select doctor</string>
+
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
