@@ -29,7 +29,15 @@
             android:label="@string/title_activity_profile"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AppointActivity" />
-        <activity android:name=".DoctorSessionActivity"></activity>
+        <activity android:name=".DoctorSessionActivity" />
+        <activity
+            android:name=".SpeciliatyActivity"
+            android:label="@string/title_activity_volle"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BookActivity"
+            android:label="@string/title_activity_book"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
