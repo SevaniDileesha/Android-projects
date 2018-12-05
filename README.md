@@ -8,3 +8,4 @@
 > - IPv6Calculator - an application that will give the IPv6 value when someone give the MAC address of his device
 > - FundementalApp - an application that will describe the fundementals of android studio
 > - IPv6SDCalculator - version 2.0 of IPv6Calculator
+> - PersonalApp - application to register and login (using hosted database and asyntask)
