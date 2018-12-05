@@ -9,3 +9,4 @@
 > - FundementalApp - an application that will describe the fundementals of android studio
 > - IPv6SDCalculator - version 2.0 of IPv6Calculator
 > - PersonalApp - application to register and login (using hosted database and asyntask)
+> - Doca99 - a sample application for Doc98 android application
